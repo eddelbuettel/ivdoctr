@@ -26,10 +26,9 @@ draw_bounds(
 
 \item{controls}{Character vector containing the names of the exogenous regressors}
 
-\item{r_TstarU_restriction}{2 element vector containing the min and max
-imposed on r_TstarU}
+\item{r_TstarU_restriction}{2 element vector of bounds on r_TstarU}
 
-\item{k_restriction}{2-element vector containing the min and max imposed on kappa}
+\item{k_restriction}{2-element vector of bounds on kappa}
 
 \item{n_draws}{Integer number of simulations to draw}
 }

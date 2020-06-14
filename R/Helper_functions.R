@@ -36,9 +36,6 @@ collapse_3d_array <- function(myarray){
 #'
 #' @param myArray A three-dimensional numeric array.
 #' @return A list of numeric matrices.
-#' @examples
-#' M <- array(c(1, 1, 1, 1, 2, 2, 2, 2), c(2, 2, 2))
-#' toList(M)
 toList <- function(myArray){
   lapply(seq_len(dim(myArray)[3]), function(i) myArray[, , i, drop = TRUE])
 }

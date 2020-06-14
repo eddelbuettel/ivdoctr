@@ -4,18 +4,32 @@
 \alias{makeTable}
 \title{Generates table of parameter estimates given user restrictions and data}
 \usage{
-makeTable(file, binary, ...)
+makeTable(..., output)
 }
 \arguments{
-\item{file}{Character string with the path name of the .tex file to be saved}
-
-\item{binary}{Indicator for if data is binary}
-
 \item{...}{Arguments of TeX code for individual examples to be combined into a single table}
+
+\item{output}{File name to write}
 }
 \value{
 LaTeX code that generates output table with regression results
 }
 \description{
 Generates table of parameter estimates given user restrictions and data
+}
+\examples{
+\dontrun{
+library(ivdoctr)
+endog <- c(0, 0.9)
+meas <- c(0.6, 1)
+
+colonial_example1 <- ivdoctr(y_name = "logpgp95", T_name = "avexpr",
+                            z_name = "logem4", data = colonial,
+                            controls = NULL, robust = FALSE,
+                            r_TstarU_restriction = endog,
+                            k_restriction = meas,
+                            example_name = "Colonial Origins")
+makeTable(colonial_example1, output = "colonial.tex")
+}
+
 }

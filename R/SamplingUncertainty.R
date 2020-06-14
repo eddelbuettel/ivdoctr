@@ -96,9 +96,8 @@ draw_observables <- function(y_name, T_name, z_name, data, controls = NULL,
 #' @param z_name Character vector of the names of the instrumental variables
 #' @param data Data to be analyzed
 #' @param controls Character vector containing the names of the exogenous regressors
-#' @param r_TstarU_restriction 2 element vector containing the min and max
-#'   imposed on r_TstarU
-#' @param k_restriction 2-element vector containing the min and max imposed on kappa
+#' @param r_TstarU_restriction 2 element vector of bounds on r_TstarU
+#' @param k_restriction 2-element vector of bounds on kappa
 #' @param n_draws Integer number of simulations to draw
 #'
 #' @return List containing simulated data observables (covariances,

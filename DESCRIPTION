@@ -3,9 +3,7 @@ Title: Ensures Mutually Consistent Beliefs When Using IVs
 Version: 1.0.0
 Authors@R: c(
     person("Frank", "DiTraglia", email = "francis.ditraglia@economics.ox.ac.uk", role = "aut"),
-    person("Camilo", "Garcia-Jimeno", email = "cgarcia@frbchi.org", role = "aut"),
-    person("Mallick", "Hossain", email = "emallickhossain@gmail.com", role = c("aut", "cre")), 
-    person("Alejandro", "Sanchez Becerra", email = "alesan@sas.upenn.edu", role = "aut"))
+    person("Mallick", "Hossain", email = "emallickhossain@gmail.com", role = c("aut", "cre")))
 Description: Uses data and researcher's beliefs on measurement error and
     instrumental variable (IV) endogeneity to generate the space of consistent 
     beliefs across measurement error, instrument endogeneity, and instrumental 
@@ -29,8 +27,11 @@ LinkingTo: Rcpp,
 Suggests:
     testthat,
     haven,
-    MCMCpack
+    MCMCpack,
+    knitr,
+    rmarkdown
 RoxygenNote: 7.1.0
 Encoding: UTF-8
 NeedsCompilation: yes
 BugReports: https://github.com/fditraglia/ivdoctr/issues
+VignetteBuilder: knitr

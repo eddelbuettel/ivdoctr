@@ -34,7 +34,9 @@ get_estimates <- function(y_name, T_name, z_name, data, controls = NULL,
        b_OLS = b_OLS,
        se_OLS = se_OLS,
        b_IV = b_IV,
-       se_IV = se_IV)
+       se_IV = se_IV,
+       ols = OLS,
+       iv = IV)
 }
 
 get_HPDI <- function(draws, level = 0.9) {

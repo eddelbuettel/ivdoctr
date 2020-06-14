@@ -10,8 +10,8 @@ plot_3d_beta(
   z_name,
   data,
   controls = NULL,
-  r_TstarU_restriction = NULL,
-  k_restriction = NULL,
+  r_TstarU_restriction = c(-1, 1),
+  k_restriction = c(0, 1),
   n_grid = 30,
   n_colors = 500,
   fence = NULL,
@@ -32,9 +32,9 @@ plot_3d_beta(
 
 \item{controls}{Vector of character strings specifying the exogenous variables}
 
-\item{r_TstarU_restriction}{Matrix of desired mins and maxes for r_TstarU (must be same dimensions as k_restriction)}
+\item{r_TstarU_restriction}{2-element vector of bounds for r_TstarU}
 
-\item{k_restriction}{Matrix of desired minx and maxes for kappa (must be same dimensions as r_TstarU_restriction)}
+\item{k_restriction}{2-element vector of bounds for kappa}
 
 \item{n_grid}{Number of points to put in grid}
 
@@ -42,9 +42,9 @@ plot_3d_beta(
 
 \item{fence}{Vector of left, bottom, right, and top corners of rectangle}
 
-\item{gray_k}{Matrix of kappa restrictions to recolor graph as gray}
+\item{gray_k}{2-element vector of kappa restrictions to recolor graph as gray}
 
-\item{gray_rTstarU}{Matrix of rTstarU restrictions to recolor graph as gray}
+\item{gray_rTstarU}{2-element vector of rTstarU restrictions to recolor graph as gray}
 
 \item{theta}{Graphing parameters for orienting plot}
 
@@ -55,4 +55,17 @@ Interactive 3d plot which can be oriented and saved using rgl.snapshot()
 }
 \description{
 Plot ivdoctr Restrictions
+}
+\examples{
+\dontrun{
+library(ivdoctr)
+endog <- matrix(c(0, 0.9), nrow = 1)
+meas <- matrix(c(0.6, 1), nrow = 1)
+
+plot_3d_beta(y_name = "logpgp95", T_name = "avexpr",
+            z_name = "logem4", data = colonial,
+            r_TstarU_restriction = endog,
+            k_restriction = meas)
+}
+
 }
