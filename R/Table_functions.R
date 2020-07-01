@@ -121,7 +121,6 @@ make_full_row <- function(stats, example_name) {
 #'  \item r_TstarU_restriction: User-specified bounds on r_TstarU
 #'  }
 #'@examples
-#'\dontrun{
 #'library(ivdoctr)
 #'endog <- c(0, 0.9)
 #'meas <- c(0.6, 1)
@@ -132,7 +131,6 @@ make_full_row <- function(stats, example_name) {
 #'                             r_TstarU_restriction = endog,
 #'                             k_restriction = meas,
 #'                             example_name = "Colonial Origins")
-#'}
 #'
 #' @export
 ivdoctr <- function(y_name, T_name, z_name, data, example_name,
@@ -249,7 +247,6 @@ table_footer_fn <- function() {
 #' @return LaTeX code that generates output table with regression results
 #'
 #'@examples
-#'\dontrun{
 #'library(ivdoctr)
 #'endog <- c(0, 0.9)
 #'meas <- c(0.6, 1)
@@ -261,7 +258,6 @@ table_footer_fn <- function() {
 #'                             k_restriction = meas,
 #'                             example_name = "Colonial Origins")
 #'makeTable(colonial_example1, output = "colonial.tex")
-#'}
 #'
 #' @export
 makeTable <- function(..., output) {

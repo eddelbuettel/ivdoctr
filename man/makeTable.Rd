@@ -18,7 +18,6 @@ LaTeX code that generates output table with regression results
 Generates table of parameter estimates given user restrictions and data
 }
 \examples{
-\dontrun{
 library(ivdoctr)
 endog <- c(0, 0.9)
 meas <- c(0.6, 1)
@@ -30,6 +29,5 @@ colonial_example1 <- ivdoctr(y_name = "logpgp95", T_name = "avexpr",
                             k_restriction = meas,
                             example_name = "Colonial Origins")
 makeTable(colonial_example1, output = "colonial.tex")
-}
 
 }

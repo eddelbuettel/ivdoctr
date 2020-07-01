@@ -57,7 +57,6 @@ Interactive 3d plot which can be oriented and saved using rgl.snapshot()
 Plot ivdoctr Restrictions
 }
 \examples{
-\dontrun{
 library(ivdoctr)
 endog <- matrix(c(0, 0.9), nrow = 1)
 meas <- matrix(c(0.6, 1), nrow = 1)
@@ -66,6 +65,5 @@ plot_3d_beta(y_name = "logpgp95", T_name = "avexpr",
             z_name = "logem4", data = colonial,
             r_TstarU_restriction = endog,
             k_restriction = meas)
-}
 
 }

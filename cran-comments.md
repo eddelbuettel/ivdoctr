@@ -1,10 +1,9 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Removed par(mfrow=c(1,1)) from 3d_plot.R so user options are not changed
-* Added examples for exported functions (ivdoctr, makeTable, and plot_3d_beta)
-* Added vignette applying package to empirical exercise
-* Created ivdoctr function to generate a list of objects instead of only printing results to the console
+* Removed \dontrun{} from examples of exported functions
+* Updated url to file issues
+* Updated README file
 
 ## Test environments
 * local ubuntu 20.04, R 4.0.1

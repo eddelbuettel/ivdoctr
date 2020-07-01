@@ -68,17 +68,27 @@ beliefs and runs the estimation and saves the TeX table to
 
 ``` r
 library(ivdoctr)
-endog <- matrix(c(0, 0.9), nrow = 1)
-meas <- matrix(c(0.6, 1), nrow = 1)
+endog <- c(0, 0.9)
+meas <- c(0.6, 1)
 
-colonial_example <- makeExample(y_name = "logpgp95", T_name = "avexpr", 
-                                z_name = "logem4", data = colonial,
-                                controls = NULL, robust = FALSE,
-                                r_TstarU_restriction = endog,
-                                k_restriction = meas,
-                                example_name = "Colonial Origins")
+colonial_example1 <- ivdoctr(y_name = "logpgp95", T_name = "avexpr", 
+                             z_name = "logem4", data = colonial,
+                             controls = NULL, robust = FALSE,
+                             r_TstarU_restriction = endog,
+                             k_restriction = meas,
+                             example_name = "Colonial Origins")
+                             
+endog <- c(0, 0.9)
+meas <- c(0.001, 0.6)
+
+colonial_example2 <- ivdoctr(y_name = "logpgp95", T_name = "avexpr", 
+                             z_name = "logem4", data = colonial,
+                             controls = NULL, robust = FALSE,
+                             r_TstarU_restriction = endog,
+                             k_restriction = meas,
+                             example_name = "Colonial Origins")
                                 
-makeTable("colonial.tex", binary = FALSE, colonial_example)
+makeTable(colonial_example1, colonial_example2, output = "colonial.tex")
 ```
 
 To explore the surface of estimates consistent with the researcher’s
@@ -86,33 +96,19 @@ beliefs, `ivdoctr` also generates an interactive 3D plot of the surface:
 
 ``` r
 library(ivdoctr)
-endog <- matrix(c(0, 0.9), nrow = 1)
-meas <- matrix(c(0.6, 1), nrow = 1)
+endog <- c(0, 0.9)
+meas <- c(0.6, 1)
 
-plot_3d_beta(y_name = "logpgp95", T_name = "avexpr", 
-             z_name = "logem4", data = colonial, 
-             r_TstarU_restriction = endog,
-             k_restriction = meas)
+plot_3d_beta(y_name = "logpgp95", T_name = "avexpr", z_name = "logem4",
+             data = colonial, r_TstarU_restriction = endog, k_restriction = meas)
 ```
 
 ## Usage
 
-This package exports three main functions:
+This package exports three main functions: 
 
-  - `makeExample()`: Generates the TeX code that can be used to build a
-    regression summary table.
-  - `makeTable()`: Generates the TeX code for a stand-alone regression
-    table and saves it to the specified file. Uses the output of
-    `makeExample()` as its input.
-  - `plot_3d_beta()`: Generates an interactive 3D plot illustrating the
-    relationship between the causal estimates, instrument endogeneity,
-    instrument invalidity, and measurement error.
+  + `ivdoctr()`: Generates list of estimates, including OLS and IV regression objects
+  + `makeTable()`: Generates the TeX code for a stand-alone regression table and saves it to the specified file. 
+  + `plot_3d_beta()`: Generates an interactive 3D plot illustrating the relationship between the causal estimates, instrument endogeneity, instrument invalidity, and measurement error.
 
-Both `makeExample` and `plot_3d_beta` use the same primary inputs. Users
-input the name of the dataset (`data`), the name of the dependent
-variable (`y_name`), the name of the treatment variable(s) (`T_name`),
-the name(s) of the instrument(s) (`z_name`), and the names of the
-control variables (`controls`). Without any additional arguments, the
-functions will output the identified set. If users have beliefs over
-measurement error and/or instrument endogeneity, they can specify those
-using `k_restriction` and `r_TstarU_restriction`, respectively.
+Both `ivdoctr` and `plot_3d_beta` use the same primary inputs. Users input the name of the dataset (`data`), the name of the dependent variable (`y_name`), the name of the treatment variable(s) (`T_name`), the name(s) of the instrument(s) (`z_name`), and the names of the control variables (`controls`). Without any additional arguments, the functions will output the identified set. If users have beliefs over measurement error and/or instrument endogeneity, they can specify those using `k_restriction` and `r_TstarU_restriction`, respectively.
