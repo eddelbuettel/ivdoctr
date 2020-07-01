@@ -247,7 +247,6 @@ table_footer_fn <- function() {
 #' @return LaTeX code that generates output table with regression results
 #'
 #'@examples
-#'\dontrun{
 #'library(ivdoctr)
 #'endog <- c(0, 0.9)
 #'meas <- c(0.6, 1)
@@ -258,8 +257,7 @@ table_footer_fn <- function() {
 #'                             r_TstarU_restriction = endog,
 #'                             k_restriction = meas,
 #'                             example_name = "Colonial Origins")
-#'makeTable(colonial_example1, output = "colonial.tex")
-#'}
+#'makeTable(colonial_example1, output = file.path(tempdir(), "colonial.tex"))
 #'
 #' @export
 makeTable <- function(..., output) {
