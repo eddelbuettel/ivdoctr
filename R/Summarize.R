@@ -1,6 +1,7 @@
 #' @importFrom AER ivreg
 #' @importFrom coda HPDinterval as.mcmc
 #' @importFrom sandwich vcovHC
+#' @importFrom Rcpp evalCpp
 NULL
 
 #' Computes OLS and IV estimates
